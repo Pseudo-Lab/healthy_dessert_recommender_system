@@ -1,3 +1,26 @@
+service:
+  name : bbangle_sim
+  topk : &service_topk 3 
+
 model:
-  model_code : bow
-  model_version : 0.0.1
+  default:
+    code : random
+    version : 0.0.1
+    topk : *service_topk
+  bow:
+    code : bow
+    version : 0.0.1
+    threshold : 0.5
+    topk : *service_topk
+
+  tfidf:
+    code : tfidf
+    version : 0.0.1
+    threshold : 0.5
+    topk : *service_topk
+  
+  word2vec:
+    code : word2vec
+    version : 0.0.1
+    threshold : 0.5
+    topk : *service_topk
