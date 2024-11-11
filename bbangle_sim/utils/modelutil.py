@@ -8,14 +8,18 @@ class SimilarityUtil:
     def calc_similarity(query_vector:np.ndarray, candidate_vector:np.ndarray) -> float:
         similarity = np.dot(query_vector, candidate_vector) / (np.linalg.norm(query_vector) * np.linalg.norm(candidate_vector))
         if np.isnan(similarity):
-            return 0
+            return 0.0
         return similarity
     
 class Word2VecUtil:
 
     @staticmethod   
     def load_model(model_path):
-        return Word2Vec.load(model_path)
+        try:
+            model = Word2Vec.load(model_path)
+        except:
+            model = Word2Vec()
+        return model
     
     @staticmethod
     def get_representation_vector(words:List[str], w2v_model, max_len=50):

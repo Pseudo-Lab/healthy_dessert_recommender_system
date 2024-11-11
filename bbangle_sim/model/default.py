@@ -18,6 +18,6 @@ class DefaultModel(BaseModel):
         candidate.remove(query_id)
         result = {}
         for key in random.sample(candidate, self.topk):
-            result[key] = random.random()
+            result[key] = 1.0
         return result
 

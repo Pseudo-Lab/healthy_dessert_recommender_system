@@ -24,3 +24,4 @@ model:
     version : 0.0.1
     threshold : 0.5
     topk : *service_topk
+    pre_trained_model_path : word2vec/korean_word2vec_model.model
