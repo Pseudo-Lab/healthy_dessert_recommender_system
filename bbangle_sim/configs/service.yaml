@@ -1,0 +1,27 @@
+service:
+  name : bbangle_sim
+  topk : &service_topk 3 
+
+model:
+  default:
+    code : random
+    version : 0.0.1
+    topk : *service_topk
+  bow:
+    code : bow
+    version : 0.0.1
+    threshold : 0.5
+    topk : *service_topk
+
+  tfidf:
+    code : tfidf
+    version : 0.0.1
+    threshold : 0.5
+    topk : *service_topk
+  
+  word2vec:
+    code : word2vec
+    version : 0.0.1
+    threshold : 0.5
+    topk : *service_topk
+    pre_trained_model_path : word2vec/korean_word2vec_model.model
