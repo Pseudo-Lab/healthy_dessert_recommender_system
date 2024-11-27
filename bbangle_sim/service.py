@@ -110,6 +110,9 @@ def main():
             }
             rows.append(row)
     result_df = pd.DataFrame(rows)
+    result_df['created_at'] = pd.Timestamp.now(tz='Asia/Seoul') 
+    result_df['modified_at'] = pd.Timestamp.now(tz='Asia/Seoul')
+    result_df.to_csv('data/recommendation_result.csv', index=False)
     return result_df 
 
 
