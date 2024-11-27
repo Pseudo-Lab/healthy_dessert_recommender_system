@@ -1,6 +1,6 @@
 
 import re
-from typing import List, Set
+from typing import  Set
 import pandas as pd 
 
 class NaturalLangPreProcessor:
@@ -25,7 +25,6 @@ class NaturalLangPreProcessor:
         compiler = re.compile(pattern)
         for column in kwargs.get('columns', []):
             df[column] = df[column].apply(lambda x: compiler.sub('', x))
-        print(df['title'])
         return df
 
     def fill_nan(self, df: pd.DataFrame, **kwargs) -> pd.DataFrame:

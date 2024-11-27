@@ -21,7 +21,6 @@ class RecommendationGenerator:
                 items = model.predict(query_id, data)
             finally:
                 rec_result[query_id]  = {'items': items, 'recommendation_theme': model.code, 'model_version': model.version}
-            break
         return rec_result
 
 
